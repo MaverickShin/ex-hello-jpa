@@ -1,4 +1,4 @@
-package hellojpa;
+package hellojpa.pt01;
 
 import javax.persistence.*;
 import java.util.Date;

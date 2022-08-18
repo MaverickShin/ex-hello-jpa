@@ -1,6 +1,4 @@
-package hellojpa;
-
-import jdk.swing.interop.SwingInterOpUtils;
+package hellojpa.pt01;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -27,7 +25,7 @@ public class JpaMain {
             member.setId(101L);
             member.setName("helloA");
             em.persist(member);
-            tx.commit();*/
+            tx.commit(); */
 
             // 조회
             /*Member findMember = em.find(Member.class, 1L);

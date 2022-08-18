@@ -1,14 +1,14 @@
-package hellojpa;
+package hellojpa.pt01;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
-@Entity
+//@Entity
 public class Member {
 
-    @Id
+    @Id @GeneratedValue
     private Long Id;
+
+    @Column(name="USERNAME")
     private String name;
 
     public Member() {}

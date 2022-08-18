@@ -1,11 +1,11 @@
-package hellojpa;
+package hellojpa.pt01;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
-public class FlushMain {
+public class UserMain {
 
     public static void main(String[] args) {
 
@@ -15,16 +15,19 @@ public class FlushMain {
 
         EntityTransaction tx = em.getTransaction();
 
+        tx.begin();
+
         try {
 
-            // 영속
-            Member member = new Member(200L, "member200");
-            em.persist(member);
+            Users user = new Users();
+            /*user.setId(2L);
+            user.setUsername("B");
+            user.setRoleType(RoleType.ADMIN);*/
 
-            // flush()를 사용하면 commit()전에 데이터베이스에 insert 됨 - 1차 캐시도 유지 됨
-            em.flush();
+            // @GeneratedValue(strategy = GenerationType.AUTO) 때문에 id값은 자동 생성 됨
+            user.setUsername("C");
 
-            System.out.println("==============");
+            em.persist(user);
 
             tx.commit();
         } catch (Exception e) {
@@ -32,7 +35,6 @@ public class FlushMain {
         } finally {
             em.close();
         }
-
         emf.close();
     }
 }
